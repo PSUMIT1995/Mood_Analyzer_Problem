@@ -6,12 +6,7 @@ namespace UnitTest1
     [TestClass]
     public class UnitTest1
     {
-        MoodAnalyser moodAnalyser;
-        [TestInitialize]
-        public void TestSetup()
-        {
-            moodAnalyser = new MoodAnalyser();
-        }
+
         /// <summary>
         /// TC 1.1 Given “I am in Sad Mood” message
         // Should Return SAD
@@ -23,8 +18,9 @@ namespace UnitTest1
             //assign
             string expected = "sad";
             string message = "I am in SadMood";
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
             //act
-            string actual = moodAnalyser.AnalyseMood(message);
+            string actual = moodAnalyser.AnalyseMood();
             //assert
             Assert.AreEqual(expected, actual);
 
@@ -39,11 +35,14 @@ namespace UnitTest1
             //assign
             string expected = "happy";
             string message = "I am in Any mood";
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
             //act
-            string actual = moodAnalyser.AnalyseMood(message);
+            string actual = moodAnalyser.AnalyseMood();
             //assert
             Assert.AreEqual(expected, actual);
 
         }
     }
 }
+   
+
